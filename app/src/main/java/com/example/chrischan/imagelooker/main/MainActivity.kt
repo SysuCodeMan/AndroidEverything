@@ -1,4 +1,4 @@
-package com.example.chrischan.imagelooker
+package com.example.chrischan.imagelooker.main
 
 import android.animation.FloatEvaluator
 import android.animation.ObjectAnimator
@@ -7,9 +7,9 @@ import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import com.example.chrischan.imagelooker.R
 
 /**
  * @author by Lucifer on 2019/1/19.
