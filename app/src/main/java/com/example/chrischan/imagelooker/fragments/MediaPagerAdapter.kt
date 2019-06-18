@@ -14,5 +14,11 @@ class MediaPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter
         else -> throw AssertionError()
     }
 
+    override fun getPageTitle(position: Int): CharSequence? = when (position) {
+        0 -> "音乐播放器"
+        1 -> "视频播放器"
+        else -> throw AssertionError()
+    }
+
     override fun getCount(): Int = 2
 }
