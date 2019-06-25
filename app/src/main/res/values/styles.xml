@@ -10,4 +10,17 @@
         <item name="android:windowDisablePreview">false</item>
     </style>
 
+    <style name="TextAppearance.Title" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle" parent="@style/TextAppearance.AppCompat.Small">
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="MediaStateIcon">
+        <item name="tint">@color/colorPrimary</item>
+        <item name="android:layout_margin">@dimen/media_item_control_margin</item>
+    </style>
+
 </resources>
