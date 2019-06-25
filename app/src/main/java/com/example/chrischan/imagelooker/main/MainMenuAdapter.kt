@@ -12,7 +12,7 @@ import com.example.chrischan.imagelooker.bean.MenuDO
 /**
  * @author by Lucifer on 2019/5/9.
  */
-class MainMenuAdapter(val menus:ArrayList<MenuDO>): RecyclerView.Adapter<MainMenuAdapter.MenuViewHolder>() {
+class MainMenuAdapter(private val menus:ArrayList<MenuDO>): RecyclerView.Adapter<MainMenuAdapter.MenuViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
         val textView = LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false) as TextView
         return MenuViewHolder((textView))
