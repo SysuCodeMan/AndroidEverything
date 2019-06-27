@@ -33,6 +33,13 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".pages.media.MediaService" />
+        <service
+            android:name=".pages.media.MediaService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
