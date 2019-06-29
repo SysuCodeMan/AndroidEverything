@@ -25,13 +25,21 @@ class MusicFragment : Fragment() {
     private lateinit var musicList: RecyclerView
     private lateinit var musicAdapter: MusicListAdapter
     private lateinit var musicController: MediaControllerCompat.TransportControls
+    private var isPlaying = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view: View = inflater.inflate(R.layout.music_fragment_layout, container, false)
         musicList = view.findViewById(R.id.rv_music_list)
         val musicLayoutManager = LinearLayoutManager(context)
         musicAdapter = MusicListAdapter {
-            musicController.playFromMediaId(it.mediaId, null)
+            if (!isPlaying) {
+                musicController.playFromMediaId(it.mediaId, null)
+                isPlaying = true
+            } else {
+                musicController.pause()
+                isPlaying = false
+            }
+
         }
         musicList.apply {
             layoutManager = musicLayoutManager

@@ -58,6 +58,14 @@ class MediaService : MediaBrowserServiceCompat() {
                         mediaSession!!.setPlaybackState(state)
                     }
                     else -> {
+                        mediaPlayer.apply {
+                            reset()
+                            setDataSource(this@MediaService, mediaItem.description.mediaUri)
+                            prepare()
+                        }
+                        state = PlaybackStateCompat.Builder().setState(PlaybackStateCompat.STATE_CONNECTING, 0, 1.0f)
+                                .build()
+                        mediaSession!!.setPlaybackState(state)
                     }
                 }
             } catch (e: Exception) {
