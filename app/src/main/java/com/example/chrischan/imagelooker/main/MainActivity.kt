@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val menus = ArrayList<MenuDO>().apply {
             add(MenuDO("音乐播放器", "bruce://media"))
             add(MenuDO("动画", "bruce://media"))
-            add(MenuDO("NDK", "bruce://media"))
+            add(MenuDO("NDK", "bruce://ndk"))
         }
         val menuManager = LinearLayoutManager(this)
         val menuAdapter = MainMenuAdapter(menus)

@@ -11,7 +11,28 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
+        externalNativeBuild {
+            cmake {
+                //设置 C++ flag，可选配置，-frtti 表示项目支持RTTI；-fexceptions 表示当前项目支持C++异常处理
+                cppFlags "-frtti -fexceptions"
+                //arguments 语法：-D + 变量，更多变量：https://developer.android.com/ndk/guides/cmake.html
+                arguments "-DANDROID_ARM_NEON=TRUE"
+            }
+        }
+        // 指定 ABI
+        ndk {
+            // Specifies the ABI configurations of your native
+            // libraries Gradle should build and package with your APK.
+            abiFilters 'armeabi-v7a'
+        }
 
+    }
+
+    externalNativeBuild {
+        cmake {
+            //指明 CMakeList.txt 路径
+            path "CMakeLists.txt"
+        }
     }
     buildTypes {
         release {
