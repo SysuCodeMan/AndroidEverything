@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_layout)
         val menus = ArrayList<MenuDO>().apply {
             add(MenuDO("音乐播放器", "bruce://media"))
-            add(MenuDO("动画", "bruce://media"))
+            add(MenuDO("动画", "bruce://animation"))
             add(MenuDO("NDK", "bruce://ndk"))
         }
         val menuManager = LinearLayoutManager(this)

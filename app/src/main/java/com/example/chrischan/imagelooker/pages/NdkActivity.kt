@@ -13,6 +13,6 @@ class NdkActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ndk_layout)
         ndkText = findViewById(R.id.tv_ndk)
-        ndkText.text = NativeLibrary().string
+        ndkText.text = NativeLibrary().getString()
     }
 }

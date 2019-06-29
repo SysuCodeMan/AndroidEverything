@@ -43,6 +43,17 @@
                     android:scheme="bruce"/>
             </intent-filter>
         </activity>
+        <activity android:name=".pages.AnimationActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="animation"
+                    android:scheme="bruce"/>
+            </intent-filter>
+        </activity>
 
         <service
             android:name=".pages.media.MediaService"
