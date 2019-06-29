@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.media.MediaBrowserCompat
+import android.support.v4.media.session.MediaControllerCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -23,20 +24,14 @@ class MusicFragment : Fragment() {
     private lateinit var musicBrowser: MediaBrowserCompat
     private lateinit var musicList: RecyclerView
     private lateinit var musicAdapter: MusicListAdapter
+    private lateinit var musicController: MediaControllerCompat.TransportControls
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view: View = inflater.inflate(R.layout.music_fragment_layout, container, false)
         musicList = view.findViewById(R.id.rv_music_list)
         val musicLayoutManager = LinearLayoutManager(context)
-        val musicData = ArrayList<MusicItem>()
-        musicData.add(MusicItem(
-                "wake_up_01",
-                "Intro - The Way Of Waking Up (feat. Alan Watts)",
-                "The Kyoto Connection",
-                Uri.parse("https://storage.googleapis.com/uamp/The_Kyoto_Connection_-_Wake_Up/art.jpg")
-                ))
-        musicAdapter = MusicListAdapter(musicData) {
-
+        musicAdapter = MusicListAdapter {
+            musicController.playFromMediaId(it.mediaId, null)
         }
         musicList.apply {
             layoutManager = musicLayoutManager
@@ -66,6 +61,7 @@ class MusicFragment : Fragment() {
                     val mediaId = musicBrowser.root
                     musicBrowser.unsubscribe(mediaId)
                     musicBrowser.subscribe(mediaId, subscriptionCallback)
+                    musicController = MediaControllerCompat(context, musicBrowser.sessionToken).transportControls
                 }
             }
         }, null)
